@@ -31,22 +31,16 @@ let interval = setInterval(nextImg, 3000);
 
 btnNextEl.addEventListener('click', () => {
     clearInterval(interval);
-
-    setTimeout(() => {
-        nextImg();
-        if (!clearInterval(interval)) {
-            interval = setInterval(nextImg, 3000);
-        }   
-    }, 5000);   
+    nextImg();
+    if (!clearInterval(interval)) {
+        interval = setInterval(nextImg, 3000);
+    }   
 });
 
 btnPrevEl.addEventListener('click', () => {
     clearInterval(interval);
-
-    setTimeout(() => {
-        prevImg();
-        if (!clearInterval(interval)) {
-            interval = setInterval(nextImg, 3000);
-        } 
-    }, 5000);
+    prevImg();
+    if (!clearInterval(interval)) {
+        interval = setInterval(nextImg, 3000);
+    } 
 });

@@ -7,18 +7,43 @@ const minuteSecondEl = document.querySelector('#minutes > img:last-child');
 const secondFirstEl = document.querySelector('#seconds > img:first-child');
 const secondSecondEl = document.querySelector('#seconds > img:last-child');
 
+function getTimesNow() {
+    const currentDate = new Date();
+    
+    let currentHours = String(currentDate.getHours());
+    if (currentHours.length < 2) {
+        currentHours = 0 + currentHours;
+    }
+
+    let currentMinutes = String(currentDate.getMinutes());
+    if (currentMinutes.length < 2) {
+        currentMinutes = 0 + currentMinutes;
+    }
+
+    let currentSeconds = String(currentDate.getSeconds());
+    if (currentSeconds.length < 2) {
+        currentSeconds = 0 + currentSeconds;
+    }
+    
+    const fullTime = currentHours + currentMinutes + currentSeconds;
+    
+    return fullTime.split('').map(e => Number(e));
+}
+
+const timesNow = getTimesNow();
+
 const time = {
     hours: {
-        firstHour: 1,
-        secondHour: 9
+        firstHour: timesNow[0],
+        secondHour: timesNow[1]
     },
     minutes: {
-        firstMinute: 1,
-        secondMinute: 8
+        firstMinute: timesNow[2],
+        secondMinute: timesNow[3]
     },
     seconds: {
-        firstSecond: 1,
-        lastSecond: 5
+        firstSecond: timesNow[4],
+        lastSecond: timesNow[5]
     }
 }
 
